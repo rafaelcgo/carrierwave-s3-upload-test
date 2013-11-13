@@ -1,0 +1,16 @@
+pt-BR:
+  helpers:
+    actions: "Ações"
+    links:
+      back: "Voltar"
+      cancel: "Cancelar"
+      confirm: "Tem certeza?"
+      destroy: "Remover"
+      edit: "Editar"
+      new: "Novo"
+      show: 'Ver'
+    titles:
+      edit: "Editar"
+      save: "Salvar"
+      new: "Novo %{model}"
+      delete: "Remover"

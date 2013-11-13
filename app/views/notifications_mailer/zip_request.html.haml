@@ -1,0 +1,5 @@
+%p
+  =link_to @requester.email, admin_user_url(@requester)
+  =I18n.t('.mailers.notifications.zip_request.body1')
+  =link_to @event.name, admin_event_url(@event)
+%p=I18n.t('.mailers.notifications.zip_request.body2')

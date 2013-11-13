@@ -1,0 +1,58 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : 'Title'
+    = analytics_init if Rails.env.production?
+    = csrf_meta_tags
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    %link(href="/apple-touch-icon-iphone-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114")
+    %link(href="/apple-touch-icon-iphone-114x114.png" rel="apple-touch-icon-precomposed")
+    %link(href="/apple-touch-icon-ipad-144x144.png"   rel="apple-touch-icon-precomposed" sizes="72x72")
+    %link(href="/apple-touch-icon-ipad-144x144.png"   rel="apple-touch-icon-precomposed" sizes="144x144")
+    %link(rel="shortcut icon" href="/logo.png")
+    / [if IE]
+      %link(href="/favicon.ico" rel="shortcut icon")
+
+
+  %body
+    .navbar.navbar-static-top
+      .navbar-inner
+        .container
+          =link_to root_url, class: 'brand red' do
+            test
+          %hr.login.visible-phone
+
+          -if current_user
+            %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+
+            .nav-collapse.collapse
+              %ul.nav.nav-menu.pull-right.nav-pills(role="navigation")
+                %li= link_to 'Minha conta', edit_user_registration_path if current_user
+                %li.dropdown
+                  %a#dropdownMenu.dropdown-toggle(data-toggle="dropdown" href="#" role="button")
+                    Eventos
+                    %b.caret
+                  %ul.dropdown-menu(aria-labelledby="dropdownMenu" role="menu")
+                    %li= link_to 'Meus eventos', events_path
+                    %li= link_to 'Novo evento', new_event_path
+                %li= link_to 'Sair', destroy_user_session_path, method: :delete
+          -else
+            %ul.nav.nav-login.pull-right
+              %li
+                = render partial: 'devise/sessions/new'
+
+    = bootstrap_flash
+    .content
+      .container
+        = yield
+    = javascript_include_tag "application"

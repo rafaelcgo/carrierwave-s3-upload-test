@@ -1,0 +1,8 @@
+pt-BR:
+  events:
+    index:
+      btn:
+        cant_delete: 'Você não pode deletar este evento, pois ele já possui fotos.'
+    show:
+      btn:
+        download_photos: ' Baixar fotos'

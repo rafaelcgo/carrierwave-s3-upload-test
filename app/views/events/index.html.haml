@@ -1,0 +1,36 @@
+- model_class = Event
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+  = link_to new_event_path, :class => 'btn btn-primary btn-large' do
+    %i.icon-plus
+    =t('.new', :default => t("helpers.links.new"))
+- if @events.present?
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= model_class.human_attribute_name(:name)
+        %th= model_class.human_attribute_name(:photo).pluralize
+        %th= model_class.human_attribute_name(:starts_at)
+        %th=t '.actions', :default => t("helpers.actions")
+    %tbody
+      - @events.each do |event|
+        %tr
+          %td= link_to event.name, event_path(event.permalink)
+          %td= event.photos.size
+          %td=l event.starts_at if event.starts_at
+          %td
+            = link_to event_path(event.permalink), :class => 'btn' do
+              %i.icon-search
+            - if can? :edit, event
+              = link_to edit_event_path(event), :class => 'btn' do
+                %i.icon-edit
+            - if can? :destroy, event
+              = link_to event_path(event), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger' do
+                %i.icon-trash
+            - else
+              = link_to '#', class: 'btn btn-inverse disabled', data: {original_title: t('.btn.cant_delete')}, rel: 'tooltip' do
+                %i.icon-trash
+- else
+  %h3
+    Você ainda não tem nenhum evento configurado. Configure o seu primeiro agora, clicando
+    =link_to 'aqui.', new_event_path

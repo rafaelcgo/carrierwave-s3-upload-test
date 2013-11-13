@@ -1,0 +1,22 @@
+%ul.nav.nav-tabs
+  %li.active
+    %a{href: "#totem", data: {toggle: "tab"}}
+      %i.icon-camera
+      = "Totem (#{photos.size})"
+  %li.disabled
+    %a{href: "#instagram", data: {toggle: "tab"}}
+      %i.icon-instagram
+      Instagram
+#gallery.tab-content.center
+  #totem.tab-pane.active.in
+    - if photos.present?
+      - photos.each do |p|
+        %a{href: p.photo_url, title: p.photo.filename, target: '_blank'}= image_tag p.photo_url(:thumb), style: 'width: 200px; heigth: 200px;'
+    - else
+      %h1
+        %i.icon-picture{style: 'font-size: 216px;'}
+      %h1 Ainda não existem fotos deste evento.
+  #instagram.tab-pane
+    %h1
+      %i.icon-instagram{style: 'font-size: 216px;'}
+    %h1 Em breve você também terá acesso às fotos do Instagram!

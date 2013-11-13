@@ -1,0 +1,13 @@
+== README
+
+Test app without any security to upload files. Just to test speed between Heroku and Amazon S3 and counter_cache updates.
+
+http://carrierwave-s3-upload-test.herokuapp.com
+
+* User: user@test.com
+* Pass: 12345678
+
+Event created: http://carrierwave-s3-upload-test.herokuapp.com/events/MvXgoIXd7VA
+
+== CURL to Upload Files
+* curl -X POST -F "photo=@/Library/Application Support/Apple/iChat Icons/Flags/Brazil.gif" -F "parent_type=Event" -F "parent_id=1" http://carrierwave-s3-upload-test.herokuapp.com/api/photos.json -v

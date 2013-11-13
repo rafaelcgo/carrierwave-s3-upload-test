@@ -1,0 +1,44 @@
+pt-BR:
+  attributes:
+    name: 'Nome'
+    last_sign_in_at: 'Último Login'
+    created_at: 'Criado em'
+    updated_at: 'Atualizado em'
+    event: 'Evento'
+    parent: 'Pertence'
+    place: 'Local'
+    user: 'Usuário'
+    owner: 'Criado por'
+  activerecord:
+    models:
+      event: 'Evento'
+      photo: 'Foto'
+      place: 'Local'
+      print_request: 'Pedido de Impressão'
+      user: 'Usuário'
+    attributes:
+      event:
+        photo: 'Foto'
+        starts_at: 'Início em'
+        ends_at: 'Fim em'
+      photo:
+        original_filename: 'Nome do arquivo'
+      place:
+        address: 'Endereço'
+        city: 'Cidade'
+        zip_code: 'CEP'
+        country: 'País'
+        owner: 'Criado por'
+      print_request:
+        owner_name: 'Nome'
+        owner_email: 'E-mail'
+      user:
+        current_password: 'Senha atual'
+        email: 'E-mail'
+        password: 'Senha'
+        password_confirmation: 'Confirmação de senha'
+        remember_me: 'Continuar conectado'
+    errors:
+      messages:
+        default: 'Erro. Por favor tente novamente.'
+        explanation: 'proibiu a atualiazação deste registro.'

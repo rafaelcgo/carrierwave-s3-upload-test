@@ -1,0 +1,5 @@
+pt-BR:
+  controllers:
+    api:
+      events:
+        default_name: 'Totem %{totem_tid} - Novo Evento Automático'

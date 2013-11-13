@@ -1,0 +1,10 @@
+%h1 Cadastre-se:
+
+= simple_form_for(:user, as: :user, url: registration_path(:user)) do |f|
+  = f.error_notification
+  = f.input :email, required: true, autofocus: true, label: false, placeholder: 'E-mail', input_html: { class: "full-width" }
+  = f.input :password, required: true, label: false, placeholder: 'Senha', input_html: { class: "full-width" }
+  = f.input :password_confirmation, required: true, label: false, placeholder: 'Confirmação de Senha', input_html: { class: "full-width" }
+  = f.button :submit, "Cadastrar", class: 'btn-success btn-large'
+
+= link_to "Esqueceu sua senha?", new_password_path(:user)

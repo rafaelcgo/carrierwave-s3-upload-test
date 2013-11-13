@@ -1,0 +1,15 @@
+- admin ||= false
+- form_path = (admin ? [:admin, print_request] : print_request)
+= simple_form_for form_path, :html => { :class => 'form-print-request' } do |f|
+  = f.hidden_field :event_id
+  .photos-container
+    = f.collection_check_boxes :photo_ids, print_request.event.photos, :id, :photo_url do |c|
+      .photo-box.pull-left.well
+        = image_tag c.text.to_s
+        %br
+        .center= c.check_box
+  %br
+  .print-request-container
+    = f.input :owner_name
+    = f.input :owner_email
+    = f.button :submit, :class => 'btn btn-primary'

@@ -1,0 +1,23 @@
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: carrierwave_test_development
+  pool: 5
+  username: test
+  password:
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: carrierwave_test_development
+  pool: 5
+  username: test
+  password:
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: platafotto_test
+  pool: 5
+  username: test
+  password:

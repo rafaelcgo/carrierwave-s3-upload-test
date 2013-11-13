@@ -1,0 +1,13 @@
+= simple_form_for @event, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = f.input :starts_at, wrapper: :append do
+    = f.input_field :starts_at, as: :string, class: 'input-small datepicker'
+    %span.add-on
+      %i.icon-calendar
+  = f.input :ends_at, wrapper: :append do
+    = f.input_field :ends_at, as: :string, class: 'input-small datepicker'
+    %span.add-on
+      %i.icon-calendar
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), events_path, :class => 'btn'

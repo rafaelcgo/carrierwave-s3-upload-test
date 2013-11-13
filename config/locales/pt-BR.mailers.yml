@@ -1,0 +1,10 @@
+pt-BR:
+  mailers:
+    notifications:
+      zip_ready:
+        subject: 'Suas fotos já estão disponíveis para download'
+        body: 'Faça o download das fotos do evento. Basta clicar no link abaixo:'
+      zip_request:
+        subject: 'Nova requisição de download de fotos para processamento'
+        body1: ' requisitou o download das fotos de: '
+        body2: 'Inicie o processamento com um worker do Resque.'

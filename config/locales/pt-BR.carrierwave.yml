@@ -1,0 +1,8 @@
+pt-BR:
+  errors:
+    messages:
+      carrierwave_integrity_error: "não é do tipo permitido"
+      carrierwave_processing_error: "gerou um erro ao ser processado"
+      carrierwave_download_error: "download não pode ser concluído"
+      extension_white_list_error: "não pode ser do tipo %{extension}. Por favor enviar arquivos apenas dos tipos %{allowed_types}."
+      extension_white_list_error: "não pode ser do tipo %{extension}. Tipos proibidos %{prohibited_types}."

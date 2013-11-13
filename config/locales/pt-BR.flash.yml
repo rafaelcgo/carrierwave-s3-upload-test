@@ -1,0 +1,28 @@
+pt-BR:
+  flash:
+    application:
+      authenticate_user: 'Faça seu login para acessar a página.'
+      authenticate_admin: 'Você não está logado como administrador.'
+      access_denied: 'Você não tem acesso à página que deseja visualizar.'
+    actions:
+      create:
+        notice: '%{resource_name} criado com sucesso.'
+      update:
+        notice: '%{resource_name} editado com sucesso.'
+      destroy:
+        notice: '%{resource_name} deletado com sucesso.'
+        alert: 'Não foi possível deletar o %{resource_name}.'
+    gallery:
+      show:
+        alert: 'É preciso deifinir a data inicial das fotos do evento (%{event} - #%{tag}). Edite as configurações.'
+    photo_zip:
+      create: 'Um arquivo .zip com as fotos está sendo criado. Você receberá um e-mail com o link para download em breve.'
+    sessions:
+      create:
+        alert: 'Usuário ou senha não estão corretos.'
+    slideshow:
+      show:
+        alert:
+          paid: 'Este evento ainda não foi pago. Qualquer dúvida entre em contato conosco.'
+          starts_at: 'Este slideshow ainda não está com a data de início definida.'
+          started: 'Este slideshow ainda não foi liberado. Ele está configurado para começar às %{time} do dia %{date}.'

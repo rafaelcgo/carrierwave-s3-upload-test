@@ -1,0 +1,30 @@
+- model_class = Event
+#modal-gallery.modal.modal-gallery.hide.fade{:tabindex => "-1"}
+  .modal-body
+    .modal-image
+  .modal-header
+    %p.modal-title
+  .modal-footer
+    %a.btn.btn-success.modal-play.modal-slideshow{"data-slideshow" => "5000"}
+      %i.icon-play.icon-white
+      Slideshow
+    %a.btn.modal-download{:target => "_blank"}
+      %i.icon-download
+      Download
+
+.event-header.row
+  %h1.span9.pull-left
+    %i.icon-tag
+    =t '.title', :default => @event.name
+  - if @event.starts_at
+    %h1.span3.pull-right.center
+      %i.icon-calendar
+      =l @event.starts_at.to_date
+  .span3.pull-right.center
+    %p=download_photos_btn(@event)
+
+= render 'shared/photos_container', photos: @event.photos
+
+- if (@event.zip_cache_up_to_date? || current_user)
+  .form-actions
+    =download_photos_btn(@event, class: 'btn-large btn-primary')
