@@ -4,16 +4,16 @@ class Api::EventsController < ApiController
   # GET /api/events.json
   # curl -X GET -F "email=user@test.com" http://localhost:3000/api/events.json -v
   def index
-    @events = Event.includes(:place, :owner)
+    @events = Event.includes(:owner)
     @events = @events.where("UPPER(events.name) LIKE UPPER(?)", "%#{params[:term]}%")
     @events = @events.where("users.email = '#{params[:email]}'").references(:owner) if params[:email].present?
 
-    respond_with @events.to_json(include: [:place, :owner])
+    respond_with @events.to_json(include: [:owner])
   end
 
   # GET /api/events/1.json
   def show
-    respond_with Event.find(params[:id]).to_json(include: [:place, :owner])
+    respond_with Event.find(params[:id]).to_json(include: [:owner])
   end
 
   # POST /api/events.json

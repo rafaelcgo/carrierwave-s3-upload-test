@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
 
   has_many :events
   has_many :photos, dependent: :destroy
-  has_many :places
-  has_many :print_requests, through: :events
   default_scope { order('users.id DESC') }
 
   DEFAULT_PASSWORD  = '123mudar'
